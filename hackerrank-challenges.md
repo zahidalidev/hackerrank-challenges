@@ -25,3 +25,23 @@ for (let i = 0; i < a.length; i++) {
 console.log(Math.abs(d1 - d2))
 
 ```
+
+# Sales by Match
+
+```js
+let arr = [10, 20, 20, 10, 10, 30, 50, 10, 20]
+
+let temp = []
+let p = 0;
+for (let i = 0; i < arr.length; i++) {
+    if (temp.includes(arr[i])) {
+        console.log(arr[i], temp)
+        let index = temp.indexOf(arr[i])
+        temp.splice(index, 1)
+        p++;
+    } else {
+        temp.push(arr[i])
+    }
+}
+console.log('Total pairs: ', p)
+```
