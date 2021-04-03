@@ -22,6 +22,6 @@ for (let i = 0; i < a.length; i++) {
 
 }
 
-console.log(d1, d2)
+console.log(Math.abs(d1 - d2))
 
 ```
