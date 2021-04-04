@@ -62,3 +62,31 @@ for (let i = 0; i < l; i++) {
     spaceHashes = ''
 }
 ```
+
+# Mini-Max Sum
+```js
+let n = arr.length;
+let sumArray = [];
+for (let i = 0; i < n; i++) {
+    let sum = 0;
+    for (let j = 0; j < n; j++) {
+        if (i != j) {
+            sum = sum + arr[j]
+            // console.log(i, j)
+        }
+    }
+    sumArray.push(sum)
+}
+
+let min = 99999;
+let max = -99999;
+for (let i = 0; i < sumArray.length; i++) {
+    if (sumArray[i] < min) {
+        min = sumArray[i]
+    }
+    if (sumArray[i] > max) {
+        max = sumArray[i]
+    }
+}
+console.log(min, max)
+```
