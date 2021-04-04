@@ -45,3 +45,23 @@ for (let i = 0; i < arr.length; i++) {
 }
 console.log('Total pairs: ', p)
 ```
+
+# Staircase
+
+```js
+
+
+let l = 6;
+for (let i = 0; i < l; i++) {
+    let space = '';
+    for (let j = l - 1; j > i; j--) {
+        space = space + " "
+    }
+    for (let j = 0; j < i + 1; j++) {
+        space = space + "#"
+    }
+    console.log(space)
+    space = ''
+}
+
+```
