@@ -78,8 +78,8 @@ for (let i = 0; i < n; i++) {
     sumArray.push(sum)
 }
 
-let min = 99999;
-let max = -99999;
+let min = Infinity;
+let max = -Infinity;
 for (let i = 0; i < sumArray.length; i++) {
     if (sumArray[i] < min) {
         min = sumArray[i]
