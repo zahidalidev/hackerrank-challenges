@@ -132,3 +132,25 @@ function processData(input) {
 } 
 
 ```
+# Grading StudentS
+
+Examples
+
+GRADE = 84 round to (85 - 84 is less than 3)
+GRADE = 29 do not round (result is less than 40)
+GRADE = 57 do not round (60 - 57 is 3 or higher)
+ 
+```js
+let grades = [73, 67, 38, 33];
+
+let n = grades.length;
+
+for (let i = 0; i < n; i++) {
+    if (grades[i] > 37) {
+        if ((5 - (grades[i] % 5) + grades[i] - grades[i]) < 3) {
+            grades[i] = grades[i] + (5 - (grades[i] % 5));
+        }
+    }
+}
+console.log(grades)
+```
