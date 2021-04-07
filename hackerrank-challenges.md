@@ -114,3 +114,21 @@ function birthdayCakeCandles(candles) {
     return count;
 }
 ```
+
+# Time Conversion
+Given a time in 12-hour AM/PM format, convert it to military (24-hour) time.
+
+Note: - 12:00:00AM on a 12-hour clock is 00:00:00 on a 24-hour clock.
+- 12:00:00PM on a 12-hour clock is 12:00:00 on a 24-hour clock.
+```js
+function processData(input) {
+    //Enter your code here
+    var hh = parseInt(input.substr(0, 2));
+    var mmss = input.substr(2, 6);
+    var pm = input.substr(8) === 'PM';
+    var is12 = hh === 12;
+    var res = (is12 ? (pm ? 12: 0):(pm ? hh + 12: hh));
+    console.log('' + (res < 10 ? '0': '') + res + mmss);
+} 
+
+```
