@@ -90,3 +90,27 @@ for (let i = 0; i < sumArray.length; i++) {
 }
 console.log(min, max)
 ```
+# Birthday Cake Candles
+Example
+candles = [4, 4, 1, 3]
+The maximum height candles are 4 units high. There are 2 of them, so return 2.
+```js
+function birthdayCakeCandles(candles) {
+    let n = candles.length;
+    let max = 0;
+
+    for (let i = 0; i < n; i++) {
+        if (candles[i] > max) {
+            max = candles[i]
+        }
+    }
+    let count = 0;
+    for (let i = 0; i < n; i++) {
+        if (candles[i] == max) {
+            count++;
+        }
+    }
+
+    return count;
+}
+```
