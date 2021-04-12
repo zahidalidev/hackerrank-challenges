@@ -1,4 +1,4 @@
-# Diagonal Difference
+# 1- Diagonal Difference
 
 ```js
 let a = [
@@ -26,7 +26,7 @@ console.log(Math.abs(d1 - d2))
 
 ```
 
-# Sales by Match
+# 2- Sales by Match
 
 ```js
 let arr = [10, 20, 20, 10, 10, 30, 50, 10, 20]
@@ -46,7 +46,7 @@ for (let i = 0; i < arr.length; i++) {
 console.log('Total pairs: ', p)
 ```
 
-# Staircase
+# 3- Staircase
 
 ```js
 let l = 6;
@@ -63,7 +63,7 @@ for (let i = 0; i < l; i++) {
 }
 ```
 
-# Mini-Max Sum
+# 4- Mini-Max Sum
 ```js
 let n = arr.length;
 let sumArray = [];
@@ -90,7 +90,7 @@ for (let i = 0; i < sumArray.length; i++) {
 }
 console.log(min, max)
 ```
-# Birthday Cake Candles
+# 5- Birthday Cake Candles
 Example
 candles = [4, 4, 1, 3]
 The maximum height candles are 4 units high. There are 2 of them, so return 2.
@@ -115,7 +115,7 @@ function birthdayCakeCandles(candles) {
 }
 ```
 
-# Time Conversion
+# 6- Time Conversion
 Given a time in 12-hour AM/PM format, convert it to military (24-hour) time.
 
 Note: - 12:00:00AM on a 12-hour clock is 00:00:00 on a 24-hour clock.
@@ -132,7 +132,7 @@ function processData(input) {
 } 
 
 ```
-# Grading StudentS
+# 7- Grading StudentS
 
 Examples
 
@@ -155,7 +155,7 @@ for (let i = 0; i < n; i++) {
 console.log(grades)
 ```
 
-# Apple and Orange
+# 8- Apple and Orange
 
 ![image](https://user-images.githubusercontent.com/46484008/114458081-2fbc5b00-9bf8-11eb-989c-d4c6ab93de17.png)
 
