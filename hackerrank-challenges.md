@@ -154,3 +154,37 @@ for (let i = 0; i < n; i++) {
 }
 console.log(grades)
 ```
+
+# Apple and Orange
+
+![image](https://user-images.githubusercontent.com/46484008/114458081-2fbc5b00-9bf8-11eb-989c-d4c6ab93de17.png)
+
+```js
+
+// sam's house lies between s and t
+let s = 7;
+let t = 10;
+
+let a = 4;  //location of apple tree
+let b = 12; //location of orange tree
+let apples = [2, 3, -4];
+let oranges = [3, -2, -4];
+let appleCount = 0;
+let orangeCount = 0;
+
+for (let i = 0; i < apples.length; i++) {
+    apples[i] = apples[i] + a;
+    if (apples[i] >= s && apples[i] <= t) {
+        appleCount++;
+    }
+}
+for (let i = 0; i < oranges.length; i++) {
+    oranges[i] = oranges[i] + b;
+    if (oranges[i] >= s && oranges[i] <= t) {
+        orangeCount++;
+    }
+}
+
+console.log(appleCount, orangeCount)
+
+```
