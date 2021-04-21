@@ -188,3 +188,48 @@ for (let i = 0; i < oranges.length; i++) {
 console.log(appleCount, orangeCount)
 
 ```
+
+# 9- Forming a Magic Square
+We define a magic square to be an  matrix of distinct positive integers from  to  where the sum of any row, column, or diagonal of length  is always equal to the same number: the magic constant.
+
+```js
+
+let s = [
+    [4, 8, 2],
+    [4, 5, 7],
+    [6, 1, 6]
+]
+
+// 8 unique possibiities of magic squares
+const magicSquarePossibilites = [
+    [8, 1, 6, 3, 5, 7, 4, 9, 2],
+    [4, 3, 8, 9, 5, 1, 2, 7, 6],
+    [2, 9, 4, 7, 5, 3, 6, 1, 8],
+    [6, 7, 2, 1, 5, 9, 8, 3, 4],
+    [6, 1, 8, 7, 5, 3, 2, 9, 4],
+    [8, 3, 4, 1, 5, 9, 6, 7, 2],
+    [4, 9, 2, 3, 5, 7, 8, 1, 6],
+    [2, 7, 6, 9, 5, 1, 4, 3, 8]
+];
+
+
+// Converting to single dimension array to check distance from magic square possibiities
+let singleArray = []
+for (let i = 0; i < s.length; i++) {
+    for (let j = 0; j < s.length; j++) {
+        singleArray.push(s[i][j])
+    }
+}
+
+// Calculating distance using single 
+let minCost = Math.min();
+for (let i = 0; i < magicSquarePossibilites.length; i++) {
+    let cost = 0;
+    for (let j = 0; j < singleArray.length; j++) {
+        cost += Math.abs(singleArray[j] - magicSquarePossibilites[i][j]);
+        console.log(cost)
+    }
+    if (cost < minCost) minCost = cost;
+}
+console.log(minCost)
+```
