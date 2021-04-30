@@ -245,7 +245,8 @@ console.log(String(factorialize(BigInt(25))));
 ```
 
 # 11- Highest Value Palindrome
-```jsfunction maximumPalinUsingKChanges(s, n, k) {
+```js
+function maximumPalinUsingKChanges(s, n, k) {
     let str = s;
     let palin = str.split('');
 
@@ -310,11 +311,11 @@ console.log(String(factorialize(BigInt(25))));
         r--;
     }
 
-    return palin;
+    return palin.join('');
 }
 
 // Driver code to test above methods
-console.log(maximumPalinUsingKChanges('11331', 5, 4));
+console.log(maximumPalinUsingKChanges('3943', 4, 1));
 
 ```
 
