@@ -245,87 +245,76 @@ console.log(String(factorialize(BigInt(25))));
 ```
 
 # 11- Highest Value Palindrome
-```js
-function highestValuePalindrome(s, n, k) {
-    // Write your code here
-    let pali = ''
+```jsfunction maximumPalinUsingKChanges(s, n, k) {
+    let str = s;
+    let palin = str.split('');
 
-    let reverseString = '';
-    let sArray = s.split('');
-    let i = 0
-    let j = n - 1;
-    let attempts = k;
-    while (sArray.join('') != reverseString && attempts > 0) {
-        if (sArray.length == 1) {
-            sArray[0] = '9';
-            attempts--;
-            return sArray.join('');
+    // Iinitialize l and r by leftmost and
+    // rightmost ends
+    let l = 0;
+    let r = n - 1;
 
-        } else {
-
-            reverseString = [...sArray];
-            reverseString = reverseString.reverse().join('');
-
-            if (sArray.join('') != reverseString) {
-
-                if (sArray[i] != sArray[j]) {
-                    if (attempts < 0) {
-                        return attempts;
-                    }
-                    if (attempts > 1 && ((attempts % 2) > 0) && (sArray.length % 2) == 0) {
-                        sArray[0] = '9';
-                        sArray[n - 1] = '9';
-                        attempts = attempts - 2;
-                    }
-                    else if (sArray[i] > sArray[j]) {
-                        sArray[j] = sArray[i];
-                        attempts--;
-                    } else {
-                        sArray[i] = sArray[j];
-                        attempts--;
-                    }
-
-                }
-            } else {
-                // console.log(i, j, sArray, attempts)
-
-                i = 0;
-                j = n - 1;
-                if (attempts > 1 && sArray[i] != '9') {
-                    sArray[i] = '9';
-                    sArray[j] = '9';
-                    attempts = attempts - 2;
-                } else if (attempts > 1) {
-                    i++;
-                    j--;
-                    sArray[i] = '9';
-                    sArray[j] = '9';
-                    attempts = attempts - 2;
-                }
-
-                let mid = parseInt((sArray.length % 2).toFixed());
-                if (attempts == 1 && (mid) > 0) {
-                    sArray[mid + 1] = '9';
-                    attempts--;
-                }
-            }
-            // console.log(i, j)
-            i++;
-            j--;
+    // first try to make let palindrome
+    while (l < r) {
+        // Replace left and right character by
+        // maximum of both
+        if (str[l] != str[r]) {
+            palin[l] = palin[r] = Math.max(str[l], str[r]);
+            k--;
         }
+        l++;
+        r--;
     }
-    reverseString = [...sArray];
-    reverseString = reverseString.reverse().join('');
 
-    if (attempts == 0 && sArray.join('') != reverseString) {
-        return -1;
+    // If k is negative then we can't make
+    // let palindrome
+    if (k < 0) {
+        return k;
     }
-    if (attempts == 0) {
-        return sArray.join('')
+
+    l = 0;
+    r = str.length - 1;
+
+    while (l <= r) {
+
+        // At mid character, if K>0 then change
+        // it to 9
+        if (l == r) {
+            if (k > 0) {
+                palin[l] = '9';
+            }
+        }
+
+        // If character at lth (same as rth) is
+        // less than 9
+        if (palin[l] < '9') {
+            /* If none of them is changed in the
+            previous loop then subtract 2 from K
+            and convert both to 9 */
+            if (k >= 2 && palin[l] == str[l] && palin[r] == str[r]) {
+                k -= 2;
+                palin[l] = palin[r] = '9';
+            }
+
+            /* If one of them is changed
+                in the previous
+                loop then subtract 1 from K
+                (1 more is
+                subtracted already) and make them 9 */
+            else if (k >= 1 && (palin[l] != str[l] || palin[r] != str[r])) {
+                k--;
+                palin[l] = palin[r] = '9';
+            }
+        }
+        l++;
+        r--;
     }
+
+    return palin;
 }
 
+// Driver code to test above methods
+console.log(maximumPalinUsingKChanges('11331', 5, 4));
 
-console.log(highestValuePalindrome('932239', 6, 2));
 ```
 
