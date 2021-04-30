@@ -233,3 +233,13 @@ for (let i = 0; i < magicSquarePossibilites.length; i++) {
 }
 console.log(minCost)
 ```
+
+# -10 Extra Long Factorials
+```js
+const factorialize = (num) => {
+    if (num === 0n) return 1n;
+    return num * factorialize(num - 1n);
+};
+console.log(String(factorialize(BigInt(25))));
+
+```
