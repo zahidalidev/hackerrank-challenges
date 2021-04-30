@@ -234,7 +234,7 @@ for (let i = 0; i < magicSquarePossibilites.length; i++) {
 console.log(minCost)
 ```
 
-# -10 Extra Long Factorials
+# 10- Extra Long Factorials
 ```js
 const factorialize = (num) => {
     if (num === 0n) return 1n;
@@ -243,3 +243,89 @@ const factorialize = (num) => {
 console.log(String(factorialize(BigInt(25))));
 
 ```
+
+# 11- Highest Value Palindrome
+```js
+function highestValuePalindrome(s, n, k) {
+    // Write your code here
+    let pali = ''
+
+    let reverseString = '';
+    let sArray = s.split('');
+    let i = 0
+    let j = n - 1;
+    let attempts = k;
+    while (sArray.join('') != reverseString && attempts > 0) {
+        if (sArray.length == 1) {
+            sArray[0] = '9';
+            attempts--;
+            return sArray.join('');
+
+        } else {
+
+            reverseString = [...sArray];
+            reverseString = reverseString.reverse().join('');
+
+            if (sArray.join('') != reverseString) {
+
+                if (sArray[i] != sArray[j]) {
+                    if (attempts < 0) {
+                        return attempts;
+                    }
+                    if (attempts > 1 && ((attempts % 2) > 0) && (sArray.length % 2) == 0) {
+                        sArray[0] = '9';
+                        sArray[n - 1] = '9';
+                        attempts = attempts - 2;
+                    }
+                    else if (sArray[i] > sArray[j]) {
+                        sArray[j] = sArray[i];
+                        attempts--;
+                    } else {
+                        sArray[i] = sArray[j];
+                        attempts--;
+                    }
+
+                }
+            } else {
+                // console.log(i, j, sArray, attempts)
+
+                i = 0;
+                j = n - 1;
+                if (attempts > 1 && sArray[i] != '9') {
+                    sArray[i] = '9';
+                    sArray[j] = '9';
+                    attempts = attempts - 2;
+                } else if (attempts > 1) {
+                    i++;
+                    j--;
+                    sArray[i] = '9';
+                    sArray[j] = '9';
+                    attempts = attempts - 2;
+                }
+
+                let mid = parseInt((sArray.length % 2).toFixed());
+                if (attempts == 1 && (mid) > 0) {
+                    sArray[mid + 1] = '9';
+                    attempts--;
+                }
+            }
+            // console.log(i, j)
+            i++;
+            j--;
+        }
+    }
+    reverseString = [...sArray];
+    reverseString = reverseString.reverse().join('');
+
+    if (attempts == 0 && sArray.join('') != reverseString) {
+        return -1;
+    }
+    if (attempts == 0) {
+        return sArray.join('')
+    }
+}
+
+
+console.log(highestValuePalindrome('932239', 6, 2));
+```
+
