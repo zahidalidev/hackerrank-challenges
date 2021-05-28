@@ -384,3 +384,64 @@ separateTheNumbers("202122");
 
 <!-- Output: YES 20 -->
 ```
+
+# Weighted Uniform Strings
+![image](https://user-images.githubusercontent.com/46484008/120009276-3874bf00-bff5-11eb-81f7-42fd9aea021c.png)
+
+
+```js
+const alpha = {
+    'a': 1,
+    'b': 2,
+    'c': 3,
+    'd': 4,
+    'e': 5,
+    'f': 6,
+    'g': 7,
+    'h': 8,
+    'i': 9,
+    'j': 10,
+    'k': 11,
+    'l': 12,
+    'm': 13,
+    'n': 14,
+    'o': 15,
+    'p': 16,
+    'q': 17,
+    'r': 18,
+    's': 19,
+    't': 20,
+    'u': 21,
+    'v': 22,
+    'w': 23,
+    'x': 24,
+    'y': 25,
+    'z': 25,
+}
+function weightedUniformStrings(s, queries) {
+    const tempArr = [];
+    const ans = [];
+
+    let val = 0;
+    for (let i = 0; i < s.length; i++) {
+        if (i == 0 || s[i] != s[i - 1]) {
+            val = alpha[s[i]]
+        } else {
+            val = val + alpha[s[i]];
+        }
+        tempArr.push(val)
+    }
+
+    for (let i = 0; i < queries.length; i++) {
+        if (tempArr.includes(queries[i])) {
+            ans.push('Yes')
+        } else {
+            ans.push('No')
+        }
+    }
+    return ans;
+}
+weightedUniformStrings("abccddde", [1, 3, 12, 5, 9, 10]);
+
+<!-- Output: [ 'Yes', 'Yes', 'Yes', 'Yes', 'No', 'No' ] -->
+```
