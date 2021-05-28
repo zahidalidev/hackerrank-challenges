@@ -319,3 +319,12 @@ console.log(maximumPalinUsingKChanges('3943', 4, 1));
 
 ```
 
+# CamelCase
+```js
+function countCamelCase(str) {
+    return str.split(/(?=[A-Z])/).length;
+}
+console.log(countCamelCase("saveChangesInTheEditor"))
+
+<!-- Out Put: 5 -->
+```
