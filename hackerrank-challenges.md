@@ -1,4 +1,4 @@
-# 1- Diagonal Difference
+# Diagonal Difference
 
 ```js
 let a = [
@@ -26,7 +26,7 @@ console.log(Math.abs(d1 - d2))
 
 ```
 
-# 2- Sales by Match
+# Sales by Match
 
 ```js
 let arr = [10, 20, 20, 10, 10, 30, 50, 10, 20]
@@ -46,7 +46,7 @@ for (let i = 0; i < arr.length; i++) {
 console.log('Total pairs: ', p)
 ```
 
-# 3- Staircase
+# Staircase
 
 ```js
 let l = 6;
@@ -63,7 +63,7 @@ for (let i = 0; i < l; i++) {
 }
 ```
 
-# 4- Mini-Max Sum
+# Mini-Max Sum
 ```js
 let n = arr.length;
 let sumArray = [];
@@ -90,7 +90,7 @@ for (let i = 0; i < sumArray.length; i++) {
 }
 console.log(min, max)
 ```
-# 5- Birthday Cake Candles
+# Birthday Cake Candles
 Example
 candles = [4, 4, 1, 3]
 The maximum height candles are 4 units high. There are 2 of them, so return 2.
@@ -115,7 +115,7 @@ function birthdayCakeCandles(candles) {
 }
 ```
 
-# 6- Time Conversion
+# Time Conversion
 Given a time in 12-hour AM/PM format, convert it to military (24-hour) time.
 
 Note: - 12:00:00AM on a 12-hour clock is 00:00:00 on a 24-hour clock.
@@ -132,7 +132,7 @@ function processData(input) {
 } 
 
 ```
-# 7- Grading StudentS
+# Grading StudentS
 
 Examples
 
@@ -155,7 +155,7 @@ for (let i = 0; i < n; i++) {
 console.log(grades)
 ```
 
-# 8- Apple and Orange
+# Apple and Orange
 
 ![image](https://user-images.githubusercontent.com/46484008/114458081-2fbc5b00-9bf8-11eb-989c-d4c6ab93de17.png)
 
@@ -189,7 +189,7 @@ console.log(appleCount, orangeCount)
 
 ```
 
-# 9- Forming a Magic Square
+# Forming a Magic Square
 We define a magic square to be an  matrix of distinct positive integers from  to  where the sum of any row, column, or diagonal of length  is always equal to the same number: the magic constant.
 
 ```js
@@ -234,7 +234,7 @@ for (let i = 0; i < magicSquarePossibilites.length; i++) {
 console.log(minCost)
 ```
 
-# 10- Extra Long Factorials
+# Extra Long Factorials
 ```js
 const factorialize = (num) => {
     if (num === 0n) return 1n;
@@ -244,7 +244,7 @@ console.log(String(factorialize(BigInt(25))));
 
 ```
 
-# 11- Highest Value Palindrome
+# Highest Value Palindrome
 ```js
 function maximumPalinUsingKChanges(s, n, k) {
     let str = s;
@@ -327,4 +327,30 @@ function countCamelCase(str) {
 console.log(countCamelCase("saveChangesInTheEditor"))
 
 <!-- Out Put: 5 -->
+```
+
+# Super Reduced String
+Reduce a string of lowercase characters in range ascii[‘a’..’z’]by doing a series of operations. In each operation, select a pair of adjacent letters that match, and delete them.
+Delete as many characters as possible using this method and return the resulting string. If the final string is empty, return Empty String
+```js
+function superReducedString(s) {
+    let str2 = s;
+    if (typeof s == 'string') {
+        str2 = s.split('');
+    }
+    if (str2.length == 0) return "Empty String";
+
+    if (str2.length >= 2) {
+        for (let j = 1; j < str2.length; j++) {
+            if (str2[j] == str2[j - 1]) {
+                str2.splice(j - 1, 2)
+                return superReducedString(str2);
+            }
+        }
+    }
+    return str2.join('');
+}
+console.log(superReducedString("aabccba"))
+
+<!-- Output: a -->
 ```
