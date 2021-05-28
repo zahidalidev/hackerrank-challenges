@@ -354,3 +354,33 @@ console.log(superReducedString("aabccba"))
 
 <!-- Output: a -->
 ```
+
+# Separate the Numbers
+```js
+function separateTheNumbers(s) {
+    if (s.length === 0) {
+        console.log('NO');
+        return;
+    }
+
+    for (let i = 1; i <= s.length / 2; i++) {
+        let j = 1;
+        let chars = s.substr(0, i);
+        let validString = chars;
+        while (validString.length < s.length) {
+            validString = validString + (parseInt(chars) + j);
+            j++;
+        }
+        if (validString === s) {
+            console.log(`YES ${chars}`);
+            return;
+        }
+    }
+
+    console.log('NO');
+    return;
+}
+separateTheNumbers("202122");
+
+<!-- Output: YES 20 -->
+```
