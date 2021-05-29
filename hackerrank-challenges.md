@@ -445,3 +445,47 @@ weightedUniformStrings("abccddde", [1, 3, 12, 5, 9, 10]);
 
 <!-- Output: [ 'Yes', 'Yes', 'Yes', 'Yes', 'No', 'No' ] -->
 ```
+# Palindrome Index
+Given a string of lowercase letters in the range ascii[a-z], determine the index of a character that can be removed to make the string a palindrome. There may be more than one solution, but any will do. If the word is already a palindrome or there is no solution, return -1. Otherwise, return the index of a character to remove.
+
+```js
+function removeChar(str, index) {
+    let p1 = str.substring(0, index);
+    let p2 = str.substring(index + 1, str.length);
+    let ans = p1 + p2;
+    ans = ans.trim();
+    return ans
+}
+
+function checkPaindrom(str) {
+    for (let i = 0, j = str.length - 1; i < str.length; i++, j--) {
+        if (str[i] != str[j]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+function palindromeIndex(s) {
+    let str = s;
+    let removedIndex = -1;
+    let len = str.length;
+    for (let i = 0; i < len / 2; i++) {
+        if (str[i] !== str[len - i - 1]) {
+            if (i + 1 < len) {
+                let poli = checkPaindrom(str.substring(i + 1, len - i))
+                if (poli) {
+                    return i;
+                }
+                return len - i - 1
+            }
+
+        }
+    }
+    return removedIndex;
+}
+
+console.log(palindromeIndex("aaab"));
+
+<!-- Output: 3 -->
+```
