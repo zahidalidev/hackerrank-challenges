@@ -489,3 +489,74 @@ console.log(palindromeIndex("aaab"));
 
 <!-- Output: 3 -->
 ```
+
+# Two Characters
+
+![Screenshot from 2021-11-24 13-07-38](https://user-images.githubusercontent.com/46484008/143199191-36388d29-cdcb-4a8d-9bcd-849ffb9658ab.png)
+
+```
+let str = "asvkugfiugsalddlasguifgukvsa";
+
+let uniCharStr = [];
+for (let i = 0; i < str.length; i++) {
+    if (!uniCharStr.includes(str[i])) {
+        uniCharStr.push(str[i])
+    }
+}
+
+let checkAlterStr = (str) => {
+    for (let i = 0, j = 1; i < str.length - 2 && j < str.length - 2; i += 2, j += 2) {
+        if (str[i] !== str[i + 2] || str[j] !== str[j + 2]) {
+            return false;
+        }
+    }
+
+    if (str.length % 2 == 1) {
+        if (str[0] === str[str.length - 1]) {
+            return true;
+        } else {
+            return false
+        }
+    }
+
+    return true;
+}
+
+const findAlterStr = (str) => {
+    
+    if(str.length === 1){
+        return 0;
+    }else if(str.length === 2){
+        return 2;
+    }
+   
+    for (let i = 0; i < uniCharStr.length; i++) {
+        for (let j = 0; j < uniCharStr.length; j++) {
+
+            let tempStr = str;
+            for (let t = 0; t < uniCharStr.length; t++) {
+
+                if (t != i && t != j) {
+                    let patt = new RegExp(uniCharStr[t], 'g');
+                    tempStr = tempStr.replace(patt, '')
+                    console.log(tempStr, uniCharStr[t])
+
+                }
+            }
+
+
+            if (checkAlterStr(tempStr) && tempStr[0] !== tempStr[1]) {
+                console.log("tempSt,,,,,,,,,,,,,,r: ", tempStr, tempStr.length)
+                return tempStr.length;
+            }
+        }
+        return 0;
+
+    }
+
+}
+
+// console.log()
+console.log(findAlterStr(str))
+
+```
